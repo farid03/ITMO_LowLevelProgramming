@@ -8,14 +8,14 @@ section .data
     word_buffer: times 256 db 0
     
 section .rodata
-    msg_is_long: db "Введенная строка слишком длинная! Максимальная длина -- 255 символов!", 0
+    msg_is_long: db "Введенная строка слишком длинная! Максимальная длина -- 256 символов!", 0
     msg_not_found: db "Введенный ключ отсутсвтует в словаре!", 0
 
 section .text
 
 _start:
     mov rdi, word_buffer
-    mov rsi, 255
+    mov rsi, 256
     call read_word
     cmp rax, 0
     je .is_long
@@ -44,4 +44,3 @@ _start:
     call print_error
     call print_newline
     call exit
-

@@ -1,8 +1,11 @@
 global find_word
 %include "lib.inc"
+
 section .text
 ; rdi - указатель на нуль-термированную строку (ключ), rsi - указатель на начало словаря
-find_word: 
+find_word:
+    test rsi, rsi
+    jz .end
     push rdi
     push rsi
     add rsi, 8
@@ -20,4 +23,3 @@ find_word:
     .end:
     mov rax, rsi
     ret
-
