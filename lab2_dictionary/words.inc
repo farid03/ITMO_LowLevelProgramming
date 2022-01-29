@@ -8,4 +8,3 @@ db "second", 0
 
 colon "first", first_word
 db "first", 0 
-
